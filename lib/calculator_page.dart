@@ -21,7 +21,7 @@ class _calculatorPageState extends State<calculatorPage> {
   void getValueEnteredFromKeyPad(int index){
     String buttonValue = keypads[index];
     setState(() {
-         if(buttonValue !='+' && buttonValue !='=' && buttonValue !='-' && buttonValue !='/' && buttonValue !='AC'  ) {
+         if(buttonValue !='x' && buttonValue !='+' && buttonValue !='=' && buttonValue !='-' && buttonValue !='/' && buttonValue !='AC'  ) {
             buttonValueForTextfield += buttonValue ;
          }else if(buttonValue == 'AC'){
            clearLastValueOfTextField();
@@ -38,23 +38,34 @@ class _calculatorPageState extends State<calculatorPage> {
     });
   }
 
-  void performCalculation(String buttonValueForTextfield,String buttonValue) {
+  void performCalculation(String buttonValueForTextfield, String buttonValue) {
        double convertTextFieldValue = double.parse(buttonValueForTextfield);
        if(buttonValue == '+') {
          result += convertTextFieldValue;
        }else if(buttonValue == '-'){
-         if(result == 0){
-           result = convertTextFieldValue;
-         }else{
-           result -= convertTextFieldValue;
-         }
+         result = setResultToTextFieldValue(result, buttonValue, convertTextFieldValue);
        }else if(buttonValue == '/'){
-         if(result == 0){
-           result = convertTextFieldValue;
-         }else{
-           result /= convertTextFieldValue;
-         }
+         result = setResultToTextFieldValue(result, buttonValue, convertTextFieldValue);
+       }else if(buttonValue == 'x'){
+         result = setResultToTextFieldValue(result, buttonValue, convertTextFieldValue);
        }
+  }
+
+  double setResultToTextFieldValue(double value, String buttonValue, double convertTextFieldValue){
+    late double finalValue;
+    if(value == 0){
+        finalValue =  convertTextFieldValue;
+      }else{
+       switch(buttonValue){
+         case '-':
+           finalValue = value - convertTextFieldValue;
+         case 'x':
+           finalValue = value * convertTextFieldValue;
+         case '/':
+           finalValue = value / convertTextFieldValue;
+       }
+      }
+       return finalValue;
   }
 
   double displayResult(){
