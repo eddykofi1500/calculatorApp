@@ -127,7 +127,7 @@ class _calculatorPageState extends State<calculatorPage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.grey[500],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -140,7 +140,7 @@ class _calculatorPageState extends State<calculatorPage> {
                       child: Text(
                         keypads[10],
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       )
@@ -148,7 +148,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.grey[500],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -161,7 +161,7 @@ class _calculatorPageState extends State<calculatorPage> {
                       child: Text(
                         '+/-',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 20,
                             fontWeight: FontWeight.bold,
 
                         ),
@@ -170,7 +170,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.grey[500],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -192,7 +192,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.blue[800],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -200,12 +200,13 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('+'));
+                        getValueEnteredFromKeyPad(keypads.indexOf('/'));
                       },
                       child: Text(
-                        '+',
+                        '/',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            fontSize: 20,
 
                         ),
                       )
@@ -220,7 +221,7 @@ class _calculatorPageState extends State<calculatorPage> {
                 children: [
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              fixedSize: Size(70, 70),
+                              fixedSize: Size(75, 75),
                               backgroundColor: Colors.black54,
                               foregroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
@@ -233,7 +234,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           child: Text(
                               '7',
                             style: TextStyle(
-                              //fontSize: 50,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
 
                             ),
@@ -242,7 +243,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              fixedSize: Size(70, 70),
+                              fixedSize: Size(75, 75),
                               backgroundColor: Colors.black54,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
@@ -256,14 +257,14 @@ class _calculatorPageState extends State<calculatorPage> {
                               '8',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                               // fontSize: 50
+                                fontSize: 20
                               ),
                           )
                       ),
 
                    ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              fixedSize: Size(70, 70),
+                              fixedSize: Size(75, 75),
                               backgroundColor: Colors.black54,
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
@@ -277,13 +278,13 @@ class _calculatorPageState extends State<calculatorPage> {
                          '9',
                          style: TextStyle(
                              fontWeight: FontWeight.bold,
-                            // fontSize: 50
+                             fontSize: 20
                          ),
                        )
                       ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.blue[800],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -297,7 +298,7 @@ class _calculatorPageState extends State<calculatorPage> {
                         'x',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            //fontSize: 53
+                            fontSize: 20
                         ),
                       )
                   ),
@@ -309,7 +310,7 @@ class _calculatorPageState extends State<calculatorPage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -322,7 +323,7 @@ class _calculatorPageState extends State<calculatorPage> {
                       child: Text(
                         '4',
                         style: TextStyle(
-                          //fontSize: 50,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
 
                         ),
@@ -331,7 +332,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -345,14 +346,14 @@ class _calculatorPageState extends State<calculatorPage> {
                         '5',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            //fontSize: 50
+                            fontSize: 20
                         ),
                       )
                   ),
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -366,13 +367,13 @@ class _calculatorPageState extends State<calculatorPage> {
                         '6',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                           // fontSize: 50
+                            fontSize: 20
                         ),
                       )
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.blue[800],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -386,7 +387,7 @@ class _calculatorPageState extends State<calculatorPage> {
                         '-',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            //fontSize: 53
+                            fontSize: 20
                         ),
                       )
                   ),
@@ -399,7 +400,7 @@ class _calculatorPageState extends State<calculatorPage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -412,7 +413,7 @@ class _calculatorPageState extends State<calculatorPage> {
                       child: Text(
                         '1',
                         style: TextStyle(
-                         // fontSize: 50,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
 
                         ),
@@ -421,7 +422,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -435,14 +436,14 @@ class _calculatorPageState extends State<calculatorPage> {
                         '2',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                          //  fontSize: 50
+                            fontSize: 20
                         ),
                       )
                   ),
 
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.black54,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -456,13 +457,13 @@ class _calculatorPageState extends State<calculatorPage> {
                         '3',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                         //   fontSize: 50
+                            fontSize: 20
                         ),
                       )
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(70, 70),
+                          fixedSize: Size(75, 75),
                           backgroundColor: Colors.blue[800],
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -476,21 +477,22 @@ class _calculatorPageState extends State<calculatorPage> {
                         '+',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                       //     fontSize: 53
+                            fontSize: 20
                         ),
                       )
                   ),
 
                 ],
               ),
-              SizedBox(height: 12),
-              Row(
 
+              SizedBox(height: 12),
+
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                  ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            fixedSize: Size(160, 70),
+                            fixedSize: Size(160, 75),
                             backgroundColor: Colors.black54,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -503,7 +505,7 @@ class _calculatorPageState extends State<calculatorPage> {
                         child: Text(
                           '0',
                           style: TextStyle(
-                           // fontSize: 50,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
 
                           ),
@@ -512,7 +514,7 @@ class _calculatorPageState extends State<calculatorPage> {
 
                        ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            fixedSize: Size(70, 70),
+                            fixedSize: Size(75, 75),
                             backgroundColor: Colors.black54,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -526,7 +528,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           '.',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                          //    fontSize: 50
+                              fontSize: 20
                           ),
                         )
                     ),
@@ -536,7 +538,7 @@ class _calculatorPageState extends State<calculatorPage> {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue[800],
                             foregroundColor: Colors.white,
-                            fixedSize: Size(70, 70),
+                            fixedSize: Size(75, 75),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0)
                             )
@@ -548,31 +550,10 @@ class _calculatorPageState extends State<calculatorPage> {
                           '=',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                          //    fontSize: 50
+                              fontSize: 20
                           ),
                         )
                     ),
-
-                  // ElevatedButton(
-                  //     style: ElevatedButton.styleFrom(
-                  //         fixedSize: Size(70, 70),
-                  //         foregroundColor: Colors.black,
-                  //         shape: RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(12.0)
-                  //         )
-                  //     ),
-                  //     onPressed: (){
-                  //       getValueEnteredFromKeyPad(keypads.indexOf('/'));
-                  //     },
-                  //     child: Text(
-                  //       '/',
-                  //       style: TextStyle(
-                  //           fontWeight: FontWeight.bold,
-                  //         //  fontSize: 53
-                  //       ),
-                  //     )
-                  // ),
-
                 ],
               )
             ],
