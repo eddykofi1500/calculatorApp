@@ -10,7 +10,7 @@ class calculatorPage extends StatefulWidget {
 
 class _calculatorPageState extends State<calculatorPage> {
   //list of values on the keypad
-  final List keypads = ['1','2','3','4','5','6','7','8','9','0','AC','%','/','x','-','+','='];
+  final List keypads = ['..','1','2','3','4','5','6','7','8','9','0','AC','%','/','x','-','+','='];
                    //    0   1   2   3   4   5   6   7   8   9   10  11  12  13   14  15  16
   //double result =0;
   //setting up a textField controller
@@ -18,13 +18,13 @@ class _calculatorPageState extends State<calculatorPage> {
   String lastOperator = '';
   double result = 0;
   List operations = [];
-  void getValueEnteredFromKeyPad(int index){
-    String buttonValue = keypads[index];
+  void getValueEnteredFromKeyPad(String buttonValue){
+    //String buttonValue = keypads[index];
     setState(() {
          if(buttonValue !='x' && buttonValue !='+' && buttonValue !='=' && buttonValue !='-' && buttonValue !='/' && buttonValue !='AC'  ) {
             buttonValueForTextfield += buttonValue ;
          }else if(buttonValue == 'AC'){
-           clearLastValueOfTextField();
+           clearEntireTextField();
          }else if(buttonValue !='='){
                 lastOperator = buttonValue;
                 performCalculation(buttonValueForTextfield, buttonValue);
@@ -78,11 +78,13 @@ class _calculatorPageState extends State<calculatorPage> {
 
   //clear the last value in the textField
   void clearLastValueOfTextField(){
-      if(buttonValueForTextfield.isNotEmpty) {
-        int textFieldLength = buttonValueForTextfield.length;
-        buttonValueForTextfield =
-            buttonValueForTextfield.substring(0, textFieldLength - 1);
-      }
+      setState(() {
+        if(buttonValueForTextfield.isNotEmpty) {
+          int textFieldLength = buttonValueForTextfield.length;
+          buttonValueForTextfield =
+              buttonValueForTextfield.substring(0, textFieldLength - 1);
+        }
+      });
   }
 
   void clearEntireTextField(){
@@ -93,21 +95,39 @@ class _calculatorPageState extends State<calculatorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey[850],
+        foregroundColor: Colors.blue,
         title: const Text(
           'Yuraina',
           style: TextStyle(
               fontSize: 29,
               fontWeight: FontWeight.bold,
-              letterSpacing: 8.0
+              letterSpacing: 8.0,
+              shadows: [
+                Shadow( // bottomLeft
+                    offset: Offset(-1.5, -1.5),
+                    color: Colors.white
+                ),
+                Shadow( // bottomRight
+                    offset: Offset(1.5, -1.5),
+                    color: Colors.white
+                ),
+                Shadow( // topRight
+                    offset: Offset(1.5, 1.5),
+                    color: Colors.white
+                ),
+                Shadow( // topLeft
+                    offset: Offset(-1.5, 1.5),
+                    color: Colors.white
+                ),
+              ]
           ),
         ),
         centerTitle: true,
         ),
 
       body: Container(
-          color: Colors.grey[850],
+          color: Colors.grey[900],
         child: Padding(
           padding:  EdgeInsets.all(12.0),
           child: Column(
@@ -127,12 +147,30 @@ class _calculatorPageState extends State<calculatorPage> {
                     textAlign: TextAlign.end,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      fillColor: Colors.grey[850],
+                      fillColor: Colors.grey[900],
                       filled: true,
                     ),
+
                 ),
               ),
-              SizedBox(height: 10),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton.icon(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.grey[500]
+                    ),
+                    onPressed: (){
+                      clearLastValueOfTextField();
+                    },
+                    icon: Icon(Icons.backspace),
+                    //iconAlignment: IconAlignment.end,
+                    label: Text(''),
+                  ),
+                ]
+              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -146,10 +184,10 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('AC'));
+                        getValueEnteredFromKeyPad('AC');
                         },
                       child: Text(
-                        keypads[10],
+                        'AC',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -167,7 +205,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('+/-'));
+                        getValueEnteredFromKeyPad('+/-');
                       },
                       child: Text(
                         '+/-',
@@ -189,7 +227,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('%'));
+                        getValueEnteredFromKeyPad('%');
                       },
                       child: Text(
                         '%',
@@ -211,7 +249,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('/'));
+                        getValueEnteredFromKeyPad('/');
                       },
                       child: Text(
                         '/',
@@ -240,7 +278,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                             ),
                           onPressed: () {
-                            getValueEnteredFromKeyPad(keypads.indexOf('7'));
+                            getValueEnteredFromKeyPad('7');
                           },
                           child: Text(
                               '7',
@@ -262,7 +300,7 @@ class _calculatorPageState extends State<calculatorPage> {
                               )
                           ),
                           onPressed: (){
-                            getValueEnteredFromKeyPad(keypads.indexOf('8'));
+                            getValueEnteredFromKeyPad('8');
                           },
                           child: Text(
                               '8',
@@ -283,7 +321,7 @@ class _calculatorPageState extends State<calculatorPage> {
                               )
                           ),
                           onPressed: (){
-                            getValueEnteredFromKeyPad(keypads.indexOf('9'));
+                            getValueEnteredFromKeyPad('9');
                           },
                        child: Text(
                          '9',
@@ -303,7 +341,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('x'));
+                        getValueEnteredFromKeyPad('x');
                       },
                       child: Text(
                         'x',
@@ -329,7 +367,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('4'));
+                        getValueEnteredFromKeyPad('4');
                       },
                       child: Text(
                         '4',
@@ -351,7 +389,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('5'));
+                        getValueEnteredFromKeyPad('5');
                       },
                       child: Text(
                         '5',
@@ -372,7 +410,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('6'));
+                        getValueEnteredFromKeyPad('6');
                       },
                       child: Text(
                         '6',
@@ -392,7 +430,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('-'));
+                        getValueEnteredFromKeyPad('-');
                       },
                       child: Text(
                         '-',
@@ -419,7 +457,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('1'));
+                        getValueEnteredFromKeyPad('1');
                       },
                       child: Text(
                         '1',
@@ -441,7 +479,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('2'));
+                        getValueEnteredFromKeyPad('2');
                       },
                       child: Text(
                         '2',
@@ -462,7 +500,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('3'));
+                        getValueEnteredFromKeyPad('3');
                       },
                       child: Text(
                         '3',
@@ -482,7 +520,7 @@ class _calculatorPageState extends State<calculatorPage> {
                           )
                       ),
                       onPressed: (){
-                        getValueEnteredFromKeyPad(keypads.indexOf('+'));
+                        getValueEnteredFromKeyPad('+');
                       },
                       child: Text(
                         '+',
@@ -511,7 +549,7 @@ class _calculatorPageState extends State<calculatorPage> {
                             )
                         ),
                         onPressed: (){
-                          getValueEnteredFromKeyPad(keypads.indexOf('0'));
+                          getValueEnteredFromKeyPad('0');
                         },
                         child: Text(
                           '0',
@@ -533,9 +571,9 @@ class _calculatorPageState extends State<calculatorPage> {
                             )
                         ),
                         onPressed: (){
-                          getValueEnteredFromKeyPad(keypads.indexOf('.'));
+                          getValueEnteredFromKeyPad('.');
                         },
-                        child: Text(
+                        child: const Text(
                           '.',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -555,9 +593,9 @@ class _calculatorPageState extends State<calculatorPage> {
                             )
                         ),
                         onPressed: (){
-                          getValueEnteredFromKeyPad(keypads.indexOf('='));
+                          getValueEnteredFromKeyPad('=');
                         },
-                        child: Text(
+                        child: const Text(
                           '=',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
